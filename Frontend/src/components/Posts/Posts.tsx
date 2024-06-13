@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import axios from 'axios';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
 import {Pencil} from "lucide-react"
 import './Post.css';
 import {useUser} from '@auth0/nextjs-auth0/client'
@@ -19,7 +18,7 @@ const PostIcon = () => {
     description: ''
   });
 
-  const [loading, setLoading] = useState(false); // State to handle loader
+  const [loading, setLoading] = useState(false); 
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -30,7 +29,7 @@ const PostIcon = () => {
     if (name === 'image') {
       setFormData({
         ...formData,
-        [name]: files[0] // Assuming you only upload one image file
+        [name]: files[0] 
       });
     } else {
       setFormData({

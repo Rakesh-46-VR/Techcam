@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 20px; /* Adjust this value based on the height of your navbar */
+  padding: 80px 20px;
   min-height: 100vh;
 }
 

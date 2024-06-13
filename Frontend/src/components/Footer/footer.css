@@ -1,14 +1,14 @@
 /* Footer.css */
 
 .footer {
-    background-color: rgba(2, 25, 66, 0.178); /* Dark background */
-    color: rgb(255, 255, 255); /* Light text color */
+    background-color: rgba(2, 25, 66, 0.178);
+    color: rgb(255, 255, 255); 
     padding: 40px 20px;
-    position: relative;
-    bottom: 0;
+    position:sticky;
+    /* bottom: 0; */
     width: 100%;
     text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   }
   
   .footer-container {
@@ -39,13 +39,13 @@
   }
   
   .footer-section p svg {
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px;
   }
   
   
   .footer-bottom {
     margin-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.466); /* Border top for separation */
+    border-top: 1px solid rgba(0, 0, 0, 0.466);
     padding-top: 10px;
     font-size: 0.8rem;
   }

@@ -25,16 +25,9 @@ const Profile= ()=> {
           <div>
             <h1 className="profile-name">{user.nickname} ❤</h1>
             <p className="profile-username">@{user.email}</p>
-            {/* <p className="bio">
-              Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives
-            </p> */}
           </div>
           
           <div className="stats">
-            {/* <div className="stat">
-              <strong>345</strong>
-              <span>Posts</span>
-            </div> */}
           </div>
 
           <div className="photos">

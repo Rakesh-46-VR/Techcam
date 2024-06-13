@@ -14,7 +14,7 @@ interface NewsArticle {
   description: string;
   likes: number;
   username: string;
-  comments: object; // Make comments optional for response structure
+  comments: object;
 }
 
 const NewsPage: React.FC = () => {
@@ -46,7 +46,7 @@ const NewsPage: React.FC = () => {
       <div className="news-grid">
         {articles.map((article) => (
           <Link
-            href={`/news/${article.postId}/${article.userId}`} // Concatenate post ID and username
+            href={`/news/${article.postId}/${article.userId}`}
             key={article.postId}
           >
             <motion.div

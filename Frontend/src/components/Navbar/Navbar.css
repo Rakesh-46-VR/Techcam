@@ -3,20 +3,18 @@
   width: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 16, 47, 0.85)
-    
-  ); /* Gradient background */
+    rgba(0, 16, 47, 0.85),
+    rgba(0, 0, 0, 0)  
+  ); 
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center align items */
+  align-items: center; 
   padding: 0 20px;
-  margin: 10px;
-  backdrop-filter: blur(10px); /* Creates a frosted glass effect */
+  backdrop-filter: blur(10px); 
   transition: background 0.3s ease-in-out;
 }
 
@@ -26,12 +24,12 @@
   font-size: 1.5rem;
   font-weight: bold;
   /* position: absolute; */
-  left: 20px; /* Adjust according to your design preference */
-  top: 20px; /* Lowered position */
+  left: 20px; 
+  top: 20px; 
 }
 
 .menu-icon {
-  display: none; /* Hidden by default, shown in mobile view */
+  display: none;
   flex-direction: column;
   cursor: pointer;
   position: absolute;
@@ -52,10 +50,10 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row; /* Horizontal alignment by default */
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: auto; /* Auto width */
+  width: auto;
 }
 
 .nav-menu li {
@@ -64,7 +62,7 @@
 
 .nav-menu li a {
   display: block;
-  padding: 12px 20px; /* Larger padding for better touch targets */
+  padding: 12px 20px;
   color: white;
   text-decoration: none;
   text-align: left;
@@ -72,9 +70,9 @@
 }
 
 .nav-menu li a:hover {
-  color: #bce3f6; /* Highlight color on hover */
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover background */
-  width: 100%; /* Full width for hover effect */
+  color: #bce3f6; 
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -85,8 +83,8 @@
   }
 
   .nav-menu {
-    flex-direction: column; /* Stack links vertically in mobile view */
-    width: 100%; /* Full width */
+    flex-direction: column; 
+    width: 100%;
     position: fixed;
     top: 28px;
     left: 0px;
@@ -95,22 +93,22 @@
       rgba(0, 0, 0, 0.9),
       rgba(0, 16, 47, 0.95)
      
-    ); /* Gradient background */
+    );
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease, transform 0.5s ease;
-    transform: scale(1, 0); /* Start scaled down to zero vertically */
+    transform: scale(1, 0);
     transform-origin: top;
     
   }
 
   .nav-menu.active {
-    max-height: 100vh; /* Enough to cover whole viewport height */
-    transform: scale(1, 1); /* Scale back to full size */
+    max-height: 100vh; 
+    transform: scale(1, 1); 
   }
 
   .nav-menu li a {
-    padding: 12px 20px; /* Larger padding for better touch targets */
+    padding: 12px 20px;
     color: white;
     text-decoration: none;
     width: 100vw;
@@ -119,8 +117,8 @@
   }
 
   .nav-menu li a:hover {
-    color: #bce3f6; /* Highlight color on hover */
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover background */
-    width: 100vw;/* Full width for hover effect */
+    color: #bce3f6; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    width: 100vw;
   }
 }

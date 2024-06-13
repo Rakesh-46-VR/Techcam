@@ -16,7 +16,7 @@ interface NewsArticle {
   description: string;
   likes: number;
   username: string;
-  comments: object; // Make comments optional for response structure
+  comments: object;
 }
 
 const IndividualNewsPage: React.FC = () => {
@@ -52,7 +52,7 @@ const IndividualNewsPage: React.FC = () => {
       <div className="news-grid">
         {articles.map((article) => (
           <Link
-            href={`/news/${article.postId}/${article.userId}`} // Concatenate post ID and username
+            href={`/news/${article.postId}/${article.userId}`}
             key={article.postId}
           >
             <motion.div
@@ -70,7 +70,6 @@ const IndividualNewsPage: React.FC = () => {
               />
               <div className="news-card-content">
                 <h2 className="news-title">{article.title}</h2>
-                {/* <p className="news-username">@{article.username}</p> */}
                 <div className="news-stats">
                   <span className="news-likes">
                     <ThumbsUp size={16} /> {article.likes}

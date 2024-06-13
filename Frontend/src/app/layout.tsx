@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/footer";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "TechCam",
+  description: "Tech Chronicals - By TechCam",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+       <UserProvider>
+        <body className={inter.className}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+       </UserProvider>
+    </html>
+  );
+}

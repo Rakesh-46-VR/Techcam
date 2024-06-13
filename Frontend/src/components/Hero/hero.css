@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   /* Ensure the path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.three {
+  position: absolute;
+
+}
+
+.hero-content {
+  position: absolute;
+  text-align: center;
+  top: 50%; /* Adjust as needed to position the text */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  max-width: 600px;
+  z-index: 10;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Import Google Font */
+
+.hero-heading {
+  font-family: "Chakra Petch", sans-serif; /* Use a modern, clean font */
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Bright white on hover for high contrast */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(0, 187, 255, 0.9); /* Bright white and cyan glow for dramatic effect */transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions for interaction */
+}
+
+.hero-heading:hover {
+  transform: scale(1.05); /* Slight enlargement to emphasize interaction */
+  color: #ffffff; /* Bright white on hover for high contrast */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(174, 0, 255, 0.9); /* Bright white and cyan glow for dramatic effect */
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(178, 160, 160, 0.7);
+}
+

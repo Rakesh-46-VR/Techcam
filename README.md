@@ -12,11 +12,12 @@ You can clone the repo and setup as per the steps mentioned in he installation.
 # Insallation
 
 ```
-
 1. Clone the repository :
 
     git clone https://github.com/Rakesh-46-VR/Techcam.git
-    
+```
+
+```    
 2. Configure .env in Backend folder code and .env.local in the Frontend folder :
     
     Create Backend/.env
@@ -31,15 +32,18 @@ You can clone the repo and setup as per the steps mentioned in he installation.
         AUTH0_ISSUER_BASE_URL=''
         AUTH0_CLIENT_ID=''
         AUTH0_CLIENT_SECRET=''
+```
 
+```
 3. Run the backend code : 
         cd Backend
         npm install
         npm run dev (Default Port : 3000)
+```
 
+```
 4. Run the frontend code :
         cd Frontend
         yarn install
-        yarn dev
-    
+        yarn dev 
 ``` 

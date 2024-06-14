@@ -1,0 +1,2 @@
+# Insallation
+### Clone the repository

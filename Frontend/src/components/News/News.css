@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 body {
   background-color: #000000;
   color: #e0e0e0;
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: "Chakra Petch", sans-serif; 
+
 }
 
 .news-page-container {
@@ -13,6 +15,11 @@ body {
   top: 100px;
   text-align: center;
   height: 100vh;
+}
+
+.heading{
+  font-family: "Chakra Petch", sans-serif; 
+
 }
 
 .news-page-container h1 {
@@ -72,6 +79,7 @@ body {
   background: -webkit-linear-gradient(#00e5ff, #ff4081);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
 }
 
 .news-username {

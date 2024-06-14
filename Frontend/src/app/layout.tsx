@@ -24,6 +24,8 @@ export default function RootLayout({
           <Navbar />
           {children}
           {/* <Footer /> */}
+          {/* <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+          <script src="https://mediafiles.botpress.cloud/77084006-7f96-4d9e-b5a6-acb3c91fe868/webchat/config.js" defer></script> */}
           <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
           <script src="https://mediafiles.botpress.cloud/77084006-7f96-4d9e-b5a6-acb3c91fe868/webchat/config.js" defer></script>
         </body>

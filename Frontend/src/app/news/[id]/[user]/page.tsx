@@ -5,7 +5,7 @@ import { ThumbsUp, MessageSquare, UserRound } from "lucide-react";
 import { motion } from "framer-motion";
 import "./NewsDetail.css";
 import NewComment from "../../Components_News/NewComment";
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 interface Comment {
   _id: string;
@@ -14,8 +14,8 @@ interface Comment {
   createdAtF: string;
 }
 
-interface LikedBy{
-  user_Id:string[];
+interface LikedBy {
+  user_Id: string[];
 }
 
 interface NewsArticle {
@@ -25,18 +25,14 @@ interface NewsArticle {
     imageUrl: string;
     title: string;
     likes: number;
-    likedBy:LikedBy;
+    likedBy: LikedBy;
     comments: Comment[];
     description: string;
     createdAtF: string;
   };
 }
 
-function NewsDetail({
-  params,
-}: {
-  params: { id: string; user: string };
-}) {
+function NewsDetail({ params }: { params: { id: string; user: string } }) {
   const id = params.id;
   const user_id = params.user;
   const { user } = useUser();
@@ -46,8 +42,9 @@ function NewsDetail({
   const [error, setError] = useState<string | null>(null);
   const [liked, setIsLiked] = useState(Boolean);
   const [likes, setLikes] = useState<number | null>(null);
-  const [colorfill, setColorFill] = useState('transparent');
-  const [likedBy , setLikedBy] = useState<LikedBy |null>(null);
+  const [colorfill, setColorFill] = useState("transparent");
+  const [likedBy, setLikedBy] = useState<LikedBy | null>(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -71,13 +68,13 @@ function NewsDetail({
 
       setArticle(data);
       setLikes(data.post.likes);
-      setLikedBy(data.post.likedBy)
-      setLikes(data.post.likedBy.user_Id.length)
-      if (data.post.likedBy.user_Id.includes(user?.sub)){
-        setIsLiked(true)
-        setColorFill('blue')
-      }else{
-          setIsLiked(false)
+      setLikedBy(data.post.likedBy);
+      setLikes(data.post.likedBy.user_Id.length);
+      if (data.post.likedBy.user_Id.includes(user?.sub)) {
+        setIsLiked(true);
+        setColorFill("#00d9ff");
+      } else {
+        setIsLiked(false);
       }
     } catch (error) {
       console.error("Error fetching news detail:", error);
@@ -89,40 +86,43 @@ function NewsDetail({
 
   const handleLikes = () => {
     const data = {
-      likedBy : user?.sub,
-      postId : id,
-      userId : user_id,
-    }
-    if (liked){
+      likedBy: user?.sub,
+      postId: id,
+      userId: user_id,
+    };
+    if (liked) {
       //decrement and remove from list
-      setIsLiked(false)
-      setColorFill('transparent')
-      updateLikes(data, false)
-
-    }else{
-      setIsLiked(true)
-      setColorFill('blue')
-      updateLikes(data, true)
+      setIsLiked(false);
+      setColorFill("transparent");
+      updateLikes(data, false);
+    } else {
+      setIsLiked(true);
+      setIsClicked(true);
+      setTimeout(() => setIsClicked(false), 300);
+      setColorFill("blue");
+      updateLikes(data, true);
     }
   };
 
-  const updateLikes = async(data:object , remove:boolean) =>{
-      try{
-        const response = await axios.post("http://localhost:3000/updatelikes", {data , remove:remove});
-        setLikes(response.data.likes)
-        setLikedBy(response.data.likedBy)
-        console.log(response.data)
-      }catch(error){
-        console.log(error);
-      }
-  }
+  const updateLikes = async (data: object, remove: boolean) => {
+    try {
+      const response = await axios.post("http://localhost:3000/updatelikes", {
+        data,
+        remove: remove,
+      });
+      setLikes(response.data.likes);
+      setLikedBy(response.data.likedBy);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (id) {
       fetchData();
     }
   }, [id]);
-
 
   const handleCommentSubmit = async (text: string) => {
     try {
@@ -169,7 +169,20 @@ function NewsDetail({
       <p className="news-detail-username">@{article.username}</p>
       <div className="news-detail-stats">
         <span className="news-detail-likes">
-          <ThumbsUp strokeWidth={2} size={26} fill={colorfill} color="white" onClick={handleLikes} /> {likes}
+          <motion.div
+            initial={{ scale: 1 }}
+            animate={{ scale: isClicked ? 1.5 : 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ThumbsUp
+              strokeWidth={2}
+              size={26}
+              fill={liked ? "#6675fa" : "transparent"}
+              color="white"
+              onClick={handleLikes}
+            />
+          </motion.div>
+          {likes}
         </span>
         <span className="news-detail-comments">
           <MessageSquare size={24} /> {article.post.comments.length}

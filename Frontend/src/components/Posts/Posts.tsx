@@ -88,7 +88,7 @@ const PostIcon = () => {
             <br />
             <br />
             <label htmlFor="description">Description:</label>
-            <textarea id="description" name="description" value={formData.description} onChange={handleChange} />
+            <textarea id="description" className='descrp' name="description" value={formData.description} onChange={handleChange} />
             <br />
             <br />
             <input type="submit" value="Post" />

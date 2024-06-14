@@ -47,5 +47,5 @@ We have used 3 third party services:
 4. Run the frontend code :
         cd Frontend
         yarn install
-        yarn dev 
+        yarn dev
 ``` 

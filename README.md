@@ -1,9 +1,9 @@
 # Insallation
 ```
-Clone the repository :
+### Clone the repository :
     git clone https://github.com/Rakesh-46-VR/Techcam.git
     
-Configure .env in Backend folder code and .env.local in the Frontend folder :
+### Configure .env in Backend folder code and .env.local in the Frontend folder :
     Backend/.env
         CLOUDINARY_CLOUD_NAME = ""
         CLOUDINARY_API_KEY = ""

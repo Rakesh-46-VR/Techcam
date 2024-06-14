@@ -79,6 +79,7 @@ app.post("/unique" , async (req, res)=>{
 app.get("/fetchnews/all" , async(req , res)=>{
     try {
         const pipeline = [
+            
             { $unwind: '$post' },
 
             {
@@ -97,7 +98,8 @@ app.get("/fetchnews/all" , async(req , res)=>{
                     },
                     comments: '$post.comments'
                 }            
-            }
+            },
+            { $sample: { size: 100 } },
         ]
 
         const posts = await Data.aggregate(pipeline)

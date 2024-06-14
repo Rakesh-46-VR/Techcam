@@ -5,7 +5,7 @@ const {upload} = require('./middlewares/multer.middleware.js')
 const { uploadOnCloudinary } = require('./utils/cloudinary.js');
 const { ObjectId } = require('mongodb');
 const app = express();
-
+const mongoose = require('mongoose')
 const db = require('./database/mongodb.js')
 
 //Schemas :
@@ -282,6 +282,7 @@ app.post("/updatelikes", async (req, res) => {
         const user_id = req.body.data.userId;
         const post_id = req.body.data.postId;
         const remove = req.body.remove;
+
         const data = await Data.findOne({ userId: "auth0|"+user_id, 'post._id': post_id });
         
         if (!data) {
@@ -289,6 +290,8 @@ app.post("/updatelikes", async (req, res) => {
         }
         
         const post = data.post.id(post_id);
+        const postIndex = data.post.findIndex(post => post._id.toString() === post_id);
+
         if (remove){
             post.likedBy.user_Id.push(likedBy)
             post.likes = post.likedBy.user_Id.length
@@ -296,9 +299,10 @@ app.post("/updatelikes", async (req, res) => {
             post.likedBy.user_Id.pop(likedBy)
             post.likes = post.likedBy.user_Id.length
         }
-        data.post = post
 
-        await data.save();
+        data.post[postIndex] = post
+
+        const result = await data.save();
         const response = { message: 'Likes updated successfully', likedBy:post.likedBy, likes: post.likes }
         res.status(200).json(response);
     } catch (error) {
@@ -306,6 +310,7 @@ app.post("/updatelikes", async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
 // Route to handle all other requests
 app.use((req, res) => {
   res.status(404).send('404 - Not Found');

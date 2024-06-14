@@ -1,13 +1,15 @@
 # Description
 
 Techcam is a tech news and reviews website which allows user's to share news and read news articles.
-We have used 3 third party services:
-    - Auth0
-    - Cloudinary
-    - Botpress
-
 This project was built for a competition.
 You can clone the repo and setup as per the steps mentioned in he installation.
+
+```
+We have used 3 third party services:
+    - Auth0 -> For authentication.
+    - Cloudinary -> Storage
+    - Botpress -> Personalized web embedded bots.
+```
 
 # Insallation
 
